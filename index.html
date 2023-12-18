@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Multiplication Table</title>
+    <link rel="stylesheet" href="./index.css" />
+  </head>
+  <body>
+    <div class="card">
+      <h1>Multiplication Table Generator</h1>
+
+      <p>Enter the number:</p>
+      <input type="text" id="number" />
+      <button onclick="generator()">Generate Table</button>
+
+      <h3 id="resultScreen"></h3>
+      <div id="table"></div>
+    </div>
+
+    <script>
+      const generator = () => {
+        let a = document.getElementById("number").value;
+
+        if (isNaN(a)) {
+          document.getElementById("table").innerText =
+            "Please enter a valid number";
+          return;
+        } else {
+          let multiplicationTable = "";
+
+          for (let i = 1; i <= 10; i++) {
+            multiplicationTable += a + " * " + i + " = " + a * i + "\n";
+          }
+
+          document.getElementById(
+            "resultScreen"
+          ).innerHTML = `Printing Table of ${a} `;
+
+          document.getElementById("table").innerText = multiplicationTable;
+        }
+      };
+    </script>
+  </body>
+</html>
